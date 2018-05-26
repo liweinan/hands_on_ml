@@ -1,4 +1,6 @@
 import numpy as np
+from keras.losses import mean_squared_error
+import tensorflow as tf
 
 
 def sigmoid(x):
@@ -16,10 +18,15 @@ class NeuralNetwork:
         self.weights2 = np.random.rand(4, 1)
         self.y = y
         self.output = np.zeros(self.y.shape)
+        self.losses = []
+        self.tf_session = tf.Session()
 
     def feedforward(self):
         self.layer1 = sigmoid(np.dot(self.input, self.weights1))
         self.output = sigmoid(np.dot(self.layer1, self.weights2))
+        rms = self.tf_session.run(mean_squared_error(nn.output, y))
+        print("[loss]", rms)
+        self.losses.append(rms.mean())
 
     def backprop(self):
         # application of the chain rule to find derivative of the loss function with respect to weights2 and weights1
