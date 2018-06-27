@@ -1,43 +1,69 @@
 import random
+import math
+
+
+def roundup(x):
+    return int(math.ceil(x / 100.0)) * 100
+
 
 list = []
 
-for i in range(10):
-    x = random.randint(1, 10)
-    y = random.randint(1, 10)
+for i in range(5):
+    x = random.randint(5, 10)
+    y = random.randint(5, 10)
     list.append("{0} + {1} =".format(x, y))
 
-for i in range(10):
-    x = random.randint(1, 100)
-    y = random.randint(1, 100)
+for i in range(5):
+    x = random.randint(10, 50)
+    y = random.randint(10, 50)
     list.append("{0} + {1} =".format(x, y))
 
+# 千位和百位的加减法3道，百位需要是整数
+for i in range(1):
+    x = roundup(random.randint(100, 499))
+    y = roundup(random.randint(100, 499))
+    list.append("{0} + {1} =".format(x, y))
+
+for i in range(2):
+    x = roundup(random.randint(499, 4999))
+    y = roundup(random.randint(499, 4999))
+    list.append("{0} + {1} =".format(x, y))
+
+# 除法两道，带余数
+for i in range(2):
+    x = random.randint(1, 8)
+    y = random.randint(1, 9)
+    m = random.randint(1, 9)
+    z = x * y + m
+    list.append("{0} ÷ {1} =".format(z, y))
+
+
 for i in range(10):
-    x = random.randint(1, 10)
-    y = random.randint(1, 10)
+    x = random.randint(1, 9)
+    y = random.randint(1, 9)
     if x < y:
         x, y = y, x
     list.append("{0} - {1} =".format(x, y))
 
-for i in range(20):
+for i in range(10):
     x = random.randint(1, 9)
     y = random.randint(1, 9)
     z = x * y
     list.append("{0} ÷ {1} =".format(z, y))
 
-for i in range(20):
+for i in range(10):
     x = random.randint(1, 9)
     y = random.randint(1, 9)
     list.append("{0} × {1} =".format(x, y))
 
-for i in range(10):
-    x = random.randint(1, 9)
-    y = random.randint(1, 9)
+for i in range(2):
+    x = random.randint(1, 4)
+    y = random.randint(1, 5)
     z = random.randint(1, 9)
     r = (x + y) * z
     list.append("({0} + {1}) × {2} =".format(x, y, z))
 
-for i in range(10):
+for i in range(2):
     x = random.randint(1, 9)
     y = random.randint(1, 9)
     if x == y:
@@ -48,10 +74,10 @@ for i in range(10):
     r = (x - y) * z
     list.append("{0} ÷ ({1} - {2}) =".format(r, x, y))
 
-for i in range(10):
+for i in range(1):
     x = random.randint(1, 2)
-    y = random.randint(1, 5)
-    z = random.randint(1, 9)
+    y = random.randint(1, 3)
+    z = random.randint(1, 3)
     r = x * y * z
     list.append("{0} ÷ ({1} × {2}) =".format(r, x, y))
 
