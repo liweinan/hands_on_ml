@@ -1,3 +1,4 @@
+# https://dev.to/shamdasani/build-a-flexible-neural-network-with-backpropagation-in-python
 import numpy as np
 from keras.losses import mean_squared_error
 import tensorflow as tf
